@@ -17,14 +17,13 @@ function App() {
 
   return (
     <div>
+state.1
       <PokemonCard pokemon={pokemon} />
       {pokemonIndex > 0 && (
         <button onClick={handleClickPrevious}>Précédent</button>
       )}
       {pokemonIndex < pokemonList.length - 1 && (
-        <button onClick={handleClickNext}>Suivant</button>
-      )}
-      ;
+        <button onClick={handleClickNext}>Suivant</button>)};
     </div>
   );
 }
