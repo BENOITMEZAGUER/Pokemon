@@ -1,5 +1,7 @@
+props.2
 import PropTypes from "prop-types";
-
+props.1
+mai
 function PokemonCard({ pokemon }) {
   console.log(pokemon);
 
