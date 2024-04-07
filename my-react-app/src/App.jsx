@@ -1,23 +1,49 @@
 import { useState } from "react";
 import "./App.css";
 import PokemonCard from "./components/PokemonCard";
+import NavBar from "./components/NavBar";
 
 function App() {
-  const [pokemonIndex, setpokemonIndex] = useState(0);
+  const pokemonList = [
+    {
+      name: "bulbasaur",
+      imgSrc:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+    },
+    {
+      name: "charmander",
+      imgSrc:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png",
+    },
+    {
+      name: "squirtle",
+      imgSrc:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png",
+    },
+    {
+      name: "pikachu",
+      imgSrc:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png",
+    },
+    {
+      name: "mew",
+    },
+  ];
 
-  const pokemon = pokemonList[pokemonIndex];
+  const [index, setIndex] = useState(0);
 
-  const handleClickPrevious = () => {
-    setpokemonIndex(pokemonIndex - 1);
-  };
+  function selectedPokemon(selectedIndex) {
+    setIndex(selectedIndex);
+  }
 
-  const handleClickNext = () => {
-    setpokemonIndex(pokemonIndex + 1);
-  };
+  return 
+    <>
+      <PokemonCard pokemon={pokemonList[index]} />
+      <NavBar pokemonList={pokemonList} selectedPokemon={selectedPokemon} />
+    </>
 
-  return (
     <div>
-state.1
+
       <PokemonCard pokemon={pokemon} />
       {pokemonIndex > 0 && (
         <button onClick={handleClickPrevious}>Précédent</button>
@@ -27,33 +53,5 @@ state.1
     </div>
   );
 }
-
-const pokemonList = [
-  {
-    name: "bulbasaur",
-    imgSrc:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
-  },
-
-  {
-    name: "charmander",
-    imgSrc:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png",
-  },
-  {
-    name: "squirtle",
-    imgSrc:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png",
-  },
-  {
-    name: "pikachu",
-    imgSrc:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png",
-  },
-
-  {
-    name: "mew",
-  },
-];
 
 export default App;
